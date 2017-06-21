@@ -1,0 +1,7 @@
+.directory
+gulp
+*.pyc
+__pycache__
+teaenv
+db.sqlite3
+.DS_Store
