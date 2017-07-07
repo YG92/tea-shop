@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="nav">
+  <div id="cats" class="cats">
+    <p class="touch-cats">Категории</p>
+    <div class="list">
+      {% for cat in cats %}
+        <div class="li main-cat">{{ cat.name }}
+        {% for subcat in cat.subcategory_set.all %}
+        <div class="li sub"><a href="/{{ subcat.id }}">{{ subcat.name }}</a></div>
+        {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="articles">
+    <p><a href="/article-list">Статьи</a></p>
+    {% for article in articles %}
+    <div class="art">
+      <span>{{ article.title }}</span>
+      <img src="{{article.image.url}}" alt="image">
+      <div class="text">
+        {{ article.text }}
+        <a class="readmore" href="/article-detail/{{ article.pk }}">читать</a>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+<div class="middle">
+  <div class="basket">
+    <form action="" class="sort">
+      <select id="sort" name="sort_field">
+        <option>Сортировать по:</option>
+        <option value="price">Сначала дешевые</option>
+        <option value="-price">Сначала дорогие</option>
+        <option value="rating">Рейтингу</option>
+      </select>
+      <input id="submit" type="submit" value="Сортировать">
+    </form>
+    <div class="cart">
+      <div class="cart-wrap">
+        <span id="cart">&#128722;</span>
+        <div class="cart-content">
+          <p>товаров: 0</p>
+          <p>сумма: 0р</p>
+        </div>
+      </div>
+      <a href="/buy" id="order">Оформить</a>
+    </div>
+  </div>
+  <div class="products">
+    {% for product in object_list %}
+    <div class="prod">
+      <a href="/product/{{ product.pk }}">
+      <div class="prodWrapper">
+        <div class="image">
+          <img src="{{ product.image.url }}" alt="image">
+        </div>
+        <div id="product-name"><h3>{{product.name}}</h3></div>
+        <div id="price"><p>{{product.price}}p</p></div>
+      </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% if request.user.is_superuser %}
+<div class="add-product">
+  <a id="add-pr" href="/add-product">Редактировать</a>
+</div>
+{% endif %}
+{% endblock %}

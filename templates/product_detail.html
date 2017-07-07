@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="nav">
+  <div id="cats" class="cats">
+    <p class="touch-cats">Категории</p>
+    <div class="list">
+      {% for cat in cats %}
+        <div class="li main-cat">{{ cat.name }}
+        {% for subcat in cat.subcategory_set.all %}
+        <div class="li sub"><a href="/{{ subcat.id }}">{{ subcat.name }}</a></div>
+        {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="articles">
+    <p><a href="/article-list">Статьи</a></p>
+    {% for article in articles %}
+    <div class="art">
+      <span>{{ article.title }}</span>
+      <img src="{{article.image.url}}" alt="image">
+      <div class="text">
+        {{ article.text }}
+        <a class="readmore" href="/article-detail/{{ article.pk }}">читать</a>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+<div class="middle">
+  <div class="basket">
+    <div class="prev_page">
+      <a id="previous" href="{{ request.META.HTTP_REFERER }}">&#11013; Назад</a>
+    </div>
+    <div class="cart">
+      <div class="cart-wrap">
+        <span id="cart">&#128722;</span>
+        <div class="cart-content">
+          <p>товаров: 0</p>
+          <p>сумма: 0р</p>
+        </div>
+      </div>
+      <a href="/buy" id="order">Оформить</a>
+    </div>
+  </div>
+  <div class="col_wrapper">
+    <div class="left_col">
+      <div class="detail_image">
+        <img src="{{product.image.url}}" alt="image">
+      </div>
+    </div>
+    <div class="right_col">
+      <div id="product-name">
+        <h1>{{product.name}}</h1>
+      </div>
+      <div class="description">
+        <p>{{product.description}}Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text
+        ever since the 1500s, when an unknown printer took a galley of
+        type
+        and scrambled it to make a type specimen book. It has survived not
+        only five centuries, but also the leap into electronic
+        typesetting, remaining essentially unchanged.</p>
+      </div>
+      <div class="price">
+        <p>Цена: </p>
+        <h2>{{product.price}}p</h2>
+      </div>
+      <div class="available">
+        <p>В наличии: </p>
+        {% if product.available %}
+        <h2 id="in_stock">Да</h2>
+        {% else %}
+        <h2 id="not_in_stock">Нет</h2>
+        {% endif %}
+      </div>
+      {% if product.available %}
+      <button type="button" id="to_cart">В корзину</button>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

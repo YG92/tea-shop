@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="middle">
+{% if request.user.is_superuser %}
+<div class="add-art">
+  <a id="new-article" href="new-article">Добавить статью</a>
+</div>
+{% endif %}
+{% for article in articles %}
+  <div class="col_wrapper">
+    <div class="left_col">
+      <img src="{{article.image.url}}" alt="image">
+    </div>
+    <div class="right_col">
+        <h1>{{article.title}}</h1>
+          <div class="text">
+            {{article.text}}
+            <a class="readmore" href="#">читать</a>
+          </div>
+    </div>
+  </div>
+{% endfor %}
+
+</div>
+{% endblock %}

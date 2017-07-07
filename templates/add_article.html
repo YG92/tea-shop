@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Добавить статью</h2>
+<form name="article" enctype="multipart/form-data" action="" method="POST">
+    <div class="form">
+      {% for field in form %}
+      <div class="row">
+        <div class="label">{{ field.label }}</div>
+        <div class="field">{{ field }}</div>
+      </div>
+      <hr id="formhr">
+      {% endfor %}
+      {% csrf_token %}
+    </div>
+    <input id="submit" type="submit" value="Отправить">
+</form>
+{% endblock %}
