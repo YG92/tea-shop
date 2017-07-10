@@ -6,8 +6,9 @@ from django.contrib.auth.views import login, logout
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include('catalogue.urls')),
-    url(r'', include('articles.urls')),
+    url(r'^product/', include('catalogue.urls')),
+    url(r'^cart/', include('cart.urls', namespace='cart')),
+    url(r'^article/', include('articles.urls')),
     url(r'^login/', login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/', logout, name='logout'),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
