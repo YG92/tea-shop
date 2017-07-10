@@ -4,6 +4,8 @@ from .models import Product, Category, Subcategory
 from articles.models import Article
 from django.views.generic import ListView, CreateView, DetailView, TemplateView
 from .forms import AddProductForm
+from cart.forms import CartAddProductForm
+from cart.cart import Cart
 
 
 class ProductDetailView(DetailView):
@@ -17,6 +19,7 @@ class ProductDetailView(DetailView):
         context["cats"] = Category.objects.all()
         context["articles"] = Article.objects.all().order_by('-added_at')[0:3]
         context["subcategory"] = self.subcat
+        context["form"] = CartAddProductForm
         return context
 
 
