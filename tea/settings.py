@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'catalogue',
     'articles',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -114,3 +115,4 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 CART_SESSION_ID = 'cart'
+SESSION_COOKIE_HTTPONLY = True
