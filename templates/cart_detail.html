@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Корзина</h2>
+<form name="cart" enctype="multipart/form-data" action="" method="POST">
+    <div class="form">
+      {% for item in cart %}
+      {{item}}
+      {% endfor %}
+      {{cart.get_total_price}}
+    </div>
+    <input id="submit" type="submit" value="Отправить">
+</form>
+{% endblock %}
