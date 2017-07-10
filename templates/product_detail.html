@@ -8,21 +8,21 @@
       {% for cat in cats %}
         <div class="li main-cat">{{ cat.name }}
         {% for subcat in cat.subcategory_set.all %}
-        <div class="li sub"><a href="/{{ subcat.id }}">{{ subcat.name }}</a></div>
+        <div class="li sub"><a href="/product/{{ subcat.id }}">{{ subcat.name }}</a></div>
         {% endfor %}
         </div>
       {% endfor %}
     </div>
   </div>
   <div class="articles">
-    <p><a href="/article-list">Статьи</a></p>
+    <p><a href="/article/list">Статьи</a></p>
     {% for article in articles %}
     <div class="art">
       <span>{{ article.title }}</span>
       <img src="{{article.image.url}}" alt="image">
       <div class="text">
         {{ article.text }}
-        <a class="readmore" href="/article-detail/{{ article.pk }}">читать</a>
+        <a class="readmore" href="/article/detail/{{ article.pk }}">читать</a>
       </div>
     </div>
     {% endfor %}
@@ -38,8 +38,14 @@
       <div class="cart-wrap">
         <span id="cart">&#128722;</span>
         <div class="cart-content">
-          <p>товаров: 0</p>
-          <p>сумма: 0р</p>
+          {% if cart %}
+          {% for item in cart %}
+          <p>товаров: {{item.quantity}}</p>
+          <p>сумма: {{item.total_price}}р</p>
+          {% endfor %}
+          {% else %}
+          <p>Корзина пуста</p>
+          {% endif %}
         </div>
       </div>
       <a href="/buy" id="order">Оформить</a>
@@ -77,7 +83,16 @@
         {% endif %}
       </div>
       {% if product.available %}
-      <button type="button" id="to_cart">В корзину</button>
+      <form name="cart_add" enctype="multipart/form-data"
+      action="{% url "cart:cart-add" product.id %}" method="POST">
+          <div class="form">
+            {{form}}
+            {% csrf_token %}
+          </div>
+          <a href="/cart/add/">
+            <input id="to_cart" type="submit" value="В корзину">
+          </a>
+      </form>
       {% endif %}
     </div>
   </div>

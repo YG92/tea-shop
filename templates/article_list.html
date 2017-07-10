@@ -5,7 +5,7 @@
 <div class="middle">
 {% if request.user.is_superuser %}
 <div class="add-art">
-  <a id="new-article" href="new-article">Добавить статью</a>
+  <a id="new-article" href="/article/new/">Добавить статью</a>
 </div>
 {% endif %}
 {% for article in articles %}
@@ -17,7 +17,7 @@
         <h1>{{article.title}}</h1>
           <div class="text">
             {{article.text}}
-            <a class="readmore" href="#">читать</a>
+            <a class="readmore" href="/article/detail/{{ article.pk }}">читать</a>
           </div>
     </div>
   </div>

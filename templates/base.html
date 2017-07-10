@@ -32,9 +32,9 @@
         &#9776;
       </span>
       <div class="list">
-        <div class="li home"><a href="/">На главную</a></div>
+        <div class="li home"><a href="/product/">На главную</a></div>
         <div class="li username">
-          {% if request.user.is_authenticated%}
+          {% if request.user.is_authenticated %}
           Здравствуйте, {{ request.user.username}}!
           {% else %}
           Здравствуйте, гость!

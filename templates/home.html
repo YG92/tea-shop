@@ -8,21 +8,21 @@
       {% for cat in cats %}
         <div class="li main-cat">{{ cat.name }}
         {% for subcat in cat.subcategory_set.all %}
-        <div class="li sub"><a href="/{{ subcat.id }}">{{ subcat.name }}</a></div>
+        <div class="li sub"><a href="/product/{{ subcat.id }}">{{ subcat.name }}</a></div>
         {% endfor %}
         </div>
       {% endfor %}
     </div>
   </div>
   <div class="articles">
-    <p><a href="/article-list">Статьи</a></p>
+    <p><a href="/article/list">Статьи</a></p>
     {% for article in articles %}
     <div class="art">
       <span>{{ article.title }}</span>
       <img src="{{article.image.url}}" alt="image">
       <div class="text">
         {{ article.text }}
-        <a class="readmore" href="/article-detail/{{ article.pk }}">читать</a>
+        <a class="readmore" href="/article/detail/{{ article.pk }}">читать</a>
       </div>
     </div>
     {% endfor %}
@@ -44,8 +44,14 @@
       <div class="cart-wrap">
         <span id="cart">&#128722;</span>
         <div class="cart-content">
-          <p>товаров: 0</p>
-          <p>сумма: 0р</p>
+          {% if request.cart %}
+          {% for item in request.cart %}
+          <p>товаров: {{item.quantity}}</p>
+          <p>сумма: {{item.total_price}}р</p>
+          {% endfor %}
+          {% else %}
+          <p>Корзина пуста</p>
+          {% endif %}
         </div>
       </div>
       <a href="/buy" id="order">Оформить</a>
@@ -54,7 +60,7 @@
   <div class="products">
     {% for product in object_list %}
     <div class="prod">
-      <a href="/product/{{ product.pk }}">
+      <a href="/product/detail/{{ product.pk }}">
       <div class="prodWrapper">
         <div class="image">
           <img src="{{ product.image.url }}" alt="image">
@@ -69,7 +75,7 @@
 </div>
 {% if request.user.is_superuser %}
 <div class="add-product">
-  <a id="add-pr" href="/add-product">Редактировать</a>
+  <a id="add-pr" href="/product/add">Редактировать</a>
 </div>
 {% endif %}
 {% endblock %}
