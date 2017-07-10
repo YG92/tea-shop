@@ -1,9 +1,7 @@
 .form {
   margin: 5% 0;
 }
-form[name="product"],
-form[name="article"],
-form[name="personal"]{
+form{
   width: 60%;
   height: 100%;
 }
