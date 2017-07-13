@@ -26,56 +26,49 @@
       </div>
     </div>
     {% endfor %}
-
   </div>
 </div>
 <div class="middle">
-  <div class="basket">
+  <div class="sort_cart">
     <form action="" class="sort">
-      <select id="sort" name="sort_field">
+      <select id="sort_field" name="sort_field">
         <option>Сортировать по:</option>
         <option value="price">Сначала дешевые</option>
         <option value="-price">Сначала дорогие</option>
         <option value="rating">Рейтингу</option>
       </select>
-      <input id="submit" type="submit" value="Сортировать">
+      <input class="red_button sort_submit" type="submit" value="Сортировать">
     </form>
     <div class="cart">
       <div class="cart-wrap">
-        <span id="cart">&#128722;</span>
+        <span id="cart"><a href="/cart/">&#128722;</a></span>
         <div class="cart-content">
-          {% if request.cart %}
-          {% for item in request.cart %}
-          <p>товаров: {{item.quantity}}</p>
-          <p>сумма: {{item.total_price}}р</p>
-          {% endfor %}
-          {% else %}
-          <p>Корзина пуста</p>
-          {% endif %}
+          <p>Товаров: {{cart.get_total_quantity}}</p>
+          <p>Сумма: {{cart.get_total_price}}р</p>
         </div>
       </div>
-      <a href="/buy" id="order">Оформить</a>
+      <a href="/order" class="red_button order">Оформить</a>
     </div>
+  </div>
+  <hr>
+  <div class="add-product">
+    <a class="red_button" href="/product/add">Редактировать</a>
   </div>
   <div class="products">
     {% for product in object_list %}
     <div class="prod">
-      <a href="/product/detail/{{ product.pk }}">
-      <div class="prodWrapper">
-        <div class="image">
-          <img src="{{ product.image.url }}" alt="image">
+      <a href="/product/detail/{{ product.pk }}" target="_blank">
+        <div class="prodWrapper">
+          <div class="image">
+            <img src="{{ product.image.url }}" alt="image">
+          </div>
+          <div id="product-name"><h3>{{product.name}}</h3></div>
+          <div id="price"><p>{{product.price}}p</p></div>
         </div>
-        <div id="product-name"><h3>{{product.name}}</h3></div>
-        <div id="price"><p>{{product.price}}p</p></div>
-      </div>
       </a>
     </div>
     {% endfor %}
   </div>
 </div>
-{% if request.user.is_superuser %}
-<div class="add-product">
-  <a id="add-pr" href="/product/add">Редактировать</a>
-</div>
-{% endif %}
+
 {% endblock %}
