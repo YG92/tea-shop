@@ -456,10 +456,15 @@ hr{
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;
-    padding: 0.5rem; }
+    padding: 0.5rem;
+    align-items: flex-end;}
 
-  .menu .li {
-    margin-left: 1.5rem; }
+  .home{
+    margin-right: auto;
+  }
+  .li{
+    margin-left: 1rem;
+  }
 
 
 @media (min-width: 1000px) {
