@@ -15,8 +15,46 @@ body {
   font-size: 15px;
   margin: 0; }
 
+.middle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;}
+
 img {
   width: 100%; }
+
+footer {
+  background-color: gray;
+  color: #1a1a1a;
+  padding: 2%;
+  margin-top: 1rem; }
+
+.username { /*не выводить на маленьких экранах*/
+  display: none;}
+
+
+/*красные кнопки*/
+.red_button{
+  border: none;
+  margin-top: 1rem;
+  width: 8.5rem;
+  text-decoration: none;
+  background-color: #b30000;
+  border-radius: 5px;
+  height: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: white; }
+/*конец*/
+
 
 .banner {
   position: relative;
@@ -34,11 +72,6 @@ img {
   font-family: "Lobster";
   text-shadow: 2px 3px black; }
 
-main {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1; }
-
 .menu-icon {
   font-size: 2rem;
   color: #b30000;
@@ -49,6 +82,8 @@ main {
 .menu .list {
   display: none; }
 
+
+/*при нажатии на меню*/
 .menu.open .list {
   background-color: gray;
   color: #fff;
@@ -78,6 +113,8 @@ main {
 .menu-icon:hover,
 .touch-cats:hover {
   cursor: pointer; }
+/*конец*/
+
 
 .nav {
   display: -webkit-box;
@@ -96,6 +133,8 @@ main {
   height: 2rem;
   position: relative; }
 
+
+/*подкатегории*/
 .sub {
   margin-left: 3rem;
   color: #1a1a1a;
@@ -103,6 +142,8 @@ main {
 .cats .list {
   display: none !important; }
 
+
+/*при нажатии на категории*/
 .cats.open .list {
   background-color: gray;
   display: -webkit-box !important;
@@ -127,7 +168,10 @@ main {
 .main-cat {
   padding-bottom: 1rem;
   color: #b30000;}
+/*конец*/
 
+
+/*колонка со статьями*/
 .articles,
 .cats {
   color: white; }
@@ -141,88 +185,81 @@ a {
 
 .art {
   display: none; }
+/*конец*/
 
-.basket {
-  margin: 5%; }
 
-.sort {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-#sort {
-  width: 100%;
-  background-color: #fff;
-  border: 1px solid gray;
-  height: 2rem;}
-
+/* корзина, ее содержимое и кнопка "оформить"*/
 .cart {
+  width: 100%;
   margin-top: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between; }
 
 .cart-wrap {
-  width: 58%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-
-.cart-content p {
-  margin: 0 1rem; }
-
-input,
-#new-article,
-#add-pr,
-#submit,
-#order{
-  border: none;
-  margin-top: 1rem;
-  width: 10rem;
-  text-decoration: none;
-  background-color: #b30000;
-  border-radius: 5px;
-  height: 2rem;
+  width: 9rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  color: white; }
-
-#order{
-  margin-top: 0;
-}
-.add-product{
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
+  justify-content: space-between;}
 
 #cart{
   font-size: 2.2rem;
-  color: #b30000;
+  color: #b30000;}
+
+.cart-content{
+  margin: 0; }
+
+.cart-content p {
+  margin: 0; }
+
+.red_button.order{
+  margin-top: 0;
+}
+/*конец*/
+
+
+/* сортировка товаров*/
+.sort_cart{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sort {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+}
+
+#sort_field {
+  width: 8.5rem;
+  background-color: #fff;
+  border: 1px solid gray;
+  height: 2rem;}
+
+.sort_submit{
+  margin-top: 0;
+}
+/*конец*/
+
+
+/*вывод продуктов*/
+hr{
+  width: 100%;
+}
+
+.add-product{
+  margin: 1rem;
 }
 
 .products {
-  margin-top: 2rem;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -231,7 +268,18 @@ input,
 
 .prodWrapper {
   border-bottom: 1px solid gray;
-  padding: 5%; }
+  padding: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
   .prodWrapper:hover {
     -webkit-box-shadow: 0 0 5px #444;
     box-shadow: 0 0 5px #444;
@@ -251,105 +299,47 @@ input,
   color: #b30000;
   font-size: 1.1rem; }
 
-footer {
-  background-color: gray;
-  color: #1a1a1a;
-  padding: 2%;
-  margin-top: 1rem; }
-.middle{
-  margin: 1rem;
-}
-
-.col_wrapper{
-  width: 100%;
-  margin-top: 3rem;}
-
-.fa-shopping-basket {
-  color: #b30000; }
-
 .prod {
   width: 100%; }
 
 #product-name{
-  height: 3rem;
-}
-
-.username {
-  display: none;
-}
-
-.product_detail {
-  margin: 1rem;}
-
-.price p,
-.price h2,
-.available p,
-.available h2{
-  display: inline;
-}
+  height: 3rem;}
+/*конец*/
 
 
-#in_stock{
-  color: green;
+@media (min-width: 350px) {
+  .red_button,
+  #sort_field{
+    width: 10rem;
+  }
 }
-#not_in_stock,
-#previous{
-  color: #b30000;
-}
-.prev_page{
-  margin-top: 1rem;
-}
-#to_cart {
-  width: 10rem;
-  border: none;
-  background-color: #b30000;
-  border-radius: 5px;
-  height: 2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  color: white; }
 
 @media (min-width: 400px) {
-  .prod:nth-child(even):nth-last-child(-n+2) ~ .prod .prodWrapper {
-    border-bottom: none; }
-  #sort,
-  .cart-wrap {
-    width: 100%;
-  }
-
   .sort,
   .cart{
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 0;
-    width: 45%;
+    width: 21rem;
   }
-  .basket {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin: 1rem;
-    -ms-flex-pack: distribute;
-    justify-content: space-around; }
+  .prod:nth-child(even):nth-last-child(-n+2) ~ .prod .prodWrapper {
+    border-bottom: none; } /*убираем бордер у последних элементов*/
+
   .menu.open .list {
     top: 10vh; }
+
   .prod {
     width: 50%; }
+
   .image {
     height: 50vw; } }
 
 
 @media (min-width: 650px) {
   .col_wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 
   .left_col,
@@ -357,39 +347,47 @@ footer {
     width: 48%;
   }
 
-  .cart-wrap{
-    width: 10rem;
-  }
-  .cart{
-    flex-direction: row;
-  }
+    /*количество элементов в строке изменилось, вставляем бордер обратно*/
   .prod:nth-child(even):nth-last-child(-n+2) ~ .prod .prodWrapper {
     border-bottom: 1px solid gray; }
+
   .prod:nth-child(3n):nth-last-child(-n+3) ~ .prod .prodWrapper {
-    border-bottom: none; }
+    border-bottom: none; } /*убираем бордер у последних элементов*/
+
   .prod {
     width: 33%; }
   .image {
     height: 33vw; } }
 
+
 @media (min-width: 800px) {
+  .middle{
+    margin: 1rem 0;
+  }
   .username {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
   }
   .banner {
     height: 33.4vw; }
+
   .banner img {
     height: 100%; }
+
   .banner p {
     position: absolute;
     top: 35%;
     left: 10%;
     -webkit-transform: translate(-10%, -35%);
     transform: translate(-10%, -35%); }
+
   .menu-icon {
     display: none; }
+
   .touch-cats:hover {
     cursor: default; }
+
   .main-cont {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -398,8 +396,9 @@ footer {
     flex-wrap: wrap;
     -ms-flex-pack: distribute;
     justify-content: space-around;}
+
   .nav {
-    height: 95%;
+    height: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -412,27 +411,34 @@ footer {
     align-items: flex-start;
     width: 20%;
     background-color: inherit;
-    border-right: 1px solid #b30000; }
+    border-right: 1px solid gray; }
+
   .cats,
   .articles {
-    margin: 0.5rem 0 3rem 0.5rem;
     width: 90%;
     color: #1a1a1a; }
+
   .cats p,
   .articles p {
     margin-bottom: 1rem;
     font-size: 1.3rem; }
+
   .art {
     margin-bottom: 2rem;
     display: block; }
+
   .text {
     height: 5rem; }
+
   a.readmore {
     text-decoration: underline; }
-    a.readmore:hover {
-      color: #b30000; }
+
+  a.readmore:hover {
+    color: #b30000; }
+
   .middle {
     width: 76%; }
+
   .cats .list {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
@@ -441,25 +447,39 @@ footer {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column; }
+
   .menu {
     background-color: #b30000;
     color: white; }
+
   .menu .list {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;
     padding: 0.5rem; }
+
   .menu .li {
     margin-left: 1.5rem; }
-  .home {
-    margin-right: auto; } }
+
 
 @media (min-width: 1000px) {
+  .sort_cart{
+    justify-content: space-between;
+    flex-direction: row;}
+
+  .cart{
+    margin-top: 0;
+  }
+
+  /*количество элементов в строке изменилось, вставляем бордер обратно*/
   .prod:nth-child(3n):nth-last-child(-n+3) ~ .prod .prodWrapper {
     border-bottom: 1px solid gray; }
+
   .prod:nth-child(4n):nth-last-child(-n+4) ~ .prod .prodWrapper {
-    border-bottom: none; }
+    border-bottom: none; } /*убираем бордер у последних элементов*/
+
   .prod {
     width: 25%; }
+
   .image {
     height: 25vw; } }
