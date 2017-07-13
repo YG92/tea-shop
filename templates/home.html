@@ -52,7 +52,9 @@
   </div>
   <hr>
   <div class="add-product">
-    <a class="red_button" href="/product/add">Редактировать</a>
+    {% if request.user.is_superuser %}
+    <a class="red_button" href="/product/add">Добавить товар</a>
+    {% endif %}
   </div>
   <div class="products">
     {% for product in object_list %}
