@@ -30,27 +30,16 @@
   </div>
 </div>
 <div class="middle">
-  <div class="basket">
-    <div class="prev_page">
-      <a id="previous" href="{{ request.META.HTTP_REFERER }}">&#11013; Назад</a>
-    </div>
     <div class="cart">
       <div class="cart-wrap">
-        <span id="cart">&#128722;</span>
+        <span id="cart"><a href="/cart/">&#128722;</a></span>
         <div class="cart-content">
-          {% if cart %}
-          {% for item in cart %}
-          <p>товаров: {{item.quantity}}</p>
-          <p>сумма: {{item.total_price}}р</p>
-          {% endfor %}
-          {% else %}
-          <p>Корзина пуста</p>
-          {% endif %}
+            <p>Товаров: {{cart.get_total_quantity}}</p>
+            <p>Сумма: {{cart.get_total_price}}р</p>
         </div>
       </div>
-      <a href="/buy" id="order">Оформить</a>
+      <a href="/order/create/" class="red_button order_prod_detail">Оформить</a>
     </div>
-  </div>
   <div class="col_wrapper">
     <div class="left_col">
       <div class="detail_image">
@@ -76,22 +65,21 @@
       </div>
       <div class="available">
         <p>В наличии: </p>
-        {% if product.available %}
+        {% if product.in_stock %}
         <h2 id="in_stock">Да</h2>
         {% else %}
         <h2 id="not_in_stock">Нет</h2>
         {% endif %}
       </div>
-      {% if product.available %}
+      {% if product.in_stock %}
       <form name="cart_add" enctype="multipart/form-data"
       action="{% url "cart:cart-add" product.id %}" method="POST">
           <div class="form">
             {{form}}
+            {{form.errors}}
             {% csrf_token %}
           </div>
-          <a href="/cart/add/">
-            <input id="to_cart" type="submit" value="В корзину">
-          </a>
+          <input class="red_button" type="submit" value="В корзину">
       </form>
       {% endif %}
     </div>
