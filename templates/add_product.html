@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Редактировать товары</h2>
+<h1>Редактировать товары</h1>
 <form name="product" enctype="multipart/form-data" action="" method="POST">
 {{ formset.management_form }}
 {% for form in formset %}
@@ -17,6 +17,6 @@
       <hr>
     </div>
     {% endfor %}
-    <input id="submit" type="submit" value="Отправить">
+    <input class="red_button" type="submit" value="Отправить">
 </form>
 {% endblock %}
