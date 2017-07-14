@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="post" action="">
+  {% block form %}
+  {% endblock %}
+  <div class="form">
+    {% for field in form %}
+    <div class="error">{{field.errors}}</div>
+    <div class="row">
+      <div class="label">{{ field.label }}</div>
+      <div class="field">{{ field }}</div>
+    </div>
+    <hr id="formhr">
+    {% csrf_token %}
+    {% endfor %}
+  </div>
+  <input type="submit" value="Отправить" class="red_button">
+</form>
+{% endblock %}
