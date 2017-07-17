@@ -57,24 +57,8 @@ class ProductListView(ListView):
         return queryset
 
 
-ProductFormSet = modelformset_factory(
-    Product,
-    can_delete = True,
-    exclude=('rating', 'available',),
-    labels = {
-    'subcategory': ('Выберите категорию:'),
-    'name': ('Название товара:'),
-    'image': ('Загрузите изображение:'),
-    'price': ('Цена:'),
-    'description': ('Опишите товар:'),
-    'in_stock': ('Количество:'),
-    },
-    max_num=10,
-    extra=5)
-
-
-class AddProductsView(TemplateView):
-
+class AddProductsView(CreateView):
+    form_class = AddProductForm
     template_name = 'add_product.html'
 
     def get(self, request, *args, **kwargs):
