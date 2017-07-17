@@ -5,7 +5,7 @@
 <div class="middle">
 {% if request.user.is_superuser %}
 <div class="add-art">
-  <a id="new-article" href="/article/new/">Добавить статью</a>
+  <a class="red_button" href="/article/new/">Добавить статью</a>
 </div>
 {% endif %}
 {% for article in articles %}
