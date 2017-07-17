@@ -12,4 +12,5 @@ class AddProductForm(forms.ModelForm):
                 'image': ('Загрузите изображение:'),
                 'price': ('Цена'),
                 'description': ('Опишите товар:'),
+                'in_stock': ('Количество на складе')
                 }
