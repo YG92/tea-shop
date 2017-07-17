@@ -16,10 +16,11 @@ class ProductDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductDetailView, self).get_context_data(**kwargs)
-        context["cats"] = Category.objects.all()
         context["articles"] = Article.objects.all().order_by('-added_at')[0:3]
+        context["cats"] = Category.objects.all()
         context["subcategory"] = self.subcat
         context["form"] = CartAddProductForm
+        context["cart"] = Cart(self.request)
         return context
 
 
@@ -34,6 +35,7 @@ class ProductListView(ListView):
         context["cats"] = Category.objects.all()
         context["subcategory"] = self.subcat
         context["articles"] = Article.objects.all().order_by('-added_at')[0:3]
+        context["cart"] = Cart(self.request)
         return context
 
     def get(self, request, *args, **kwargs):
@@ -55,24 +57,24 @@ class ProductListView(ListView):
         return queryset
 
 
-ProductFormSet = modelformset_factory(Product,
-can_delete = True,
-exclude=('rating', 'available',),
-labels = {
-'subcategory': ('Выберите категорию:'),
-'name': ('Название товара:'),
-'image': ('Загрузите изображение:'),
-'price': ('Цена:'),
-'description': ('Опишите товар:'),
-'in_stock': ('Количество:'),
-},
-max_num=10,
-extra=5)
+ProductFormSet = modelformset_factory(
+    Product,
+    can_delete = True,
+    exclude=('rating', 'available',),
+    labels = {
+    'subcategory': ('Выберите категорию:'),
+    'name': ('Название товара:'),
+    'image': ('Загрузите изображение:'),
+    'price': ('Цена:'),
+    'description': ('Опишите товар:'),
+    'in_stock': ('Количество:'),
+    },
+    max_num=10,
+    extra=5)
 
 
 class AddProductsView(TemplateView):
 
-    formset = None
     template_name = 'add_product.html'
 
     def get(self, request, *args, **kwargs):
