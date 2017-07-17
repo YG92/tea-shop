@@ -38,7 +38,7 @@
             <p>Сумма: {{cart.get_total_price}}р</p>
         </div>
       </div>
-      <a href="/order/create/" class="red_button order_prod_detail">Оформить</a>
+      <a href="{% url 'order:order' %}" class="red_button order_prod_detail">Оформить</a>
     </div>
   <div class="col_wrapper">
     <div class="left_col">
