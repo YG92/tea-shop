@@ -2,4 +2,15 @@
 
 {% block form %}
 <h1>Оформить заказ</h1>
+<h3 class="order_title">Ваш заказ</h3>
+{% for item in cart %}
+  <ul id='order_list'>
+    <li>
+      {{ item.product.name }} |
+      Количество: {{ item.quantity }} |
+      Сумма: {{ item.total_price }}р
+    </li>
+  </ul>
+{% endfor %}
+<h3 class="order_title">Заполните форму</h3>
 {% endblock %}
