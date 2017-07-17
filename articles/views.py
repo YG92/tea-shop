@@ -24,9 +24,4 @@ class ArticleListView(ListView):
 class AddArticleView(CreateView):
     form_class = AddArticleForm
     template_name = 'add_article.html'
-
-    def form_valid(self, form):
-        return super(AddArticleView, self).form_valid(form)
-
-    def get_success_url(self):
-        return resolve_url('article_list')
+    success_url = '/article/list/'
