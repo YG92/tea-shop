@@ -19,7 +19,7 @@ class Product(models.Model):
     subcategory = models.ForeignKey(Subcategory)
     name = models.CharField(max_length=200)
     price = models.IntegerField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to="")
     rating = models.IntegerField(default=0)
     description = models.TextField(blank=True)
     in_stock = models.PositiveIntegerField()
