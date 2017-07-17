@@ -60,20 +60,4 @@ class ProductListView(ListView):
 class AddProductsView(CreateView):
     form_class = AddProductForm
     template_name = 'add_product.html'
-
-    def get(self, request, *args, **kwargs):
-        self.formset = ProductFormSet()
-        return super(AddProductsView, self).get(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super(AddProductsView, self).get_context_data(**kwargs)
-        context["formset"] = self.formset
-        return context
-
-    def post(self, request, *args, **kwargs):
-        self.formset = ProductFormSet(request.POST, request.FILES)
-        if self.formset.is_valid():
-            self.formset.save()
-            return redirect ('home')
-        else:
-            return super(AddProductsView, self).get(request, *args, **kwargs)
+    success_url = '/product/'

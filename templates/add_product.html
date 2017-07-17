@@ -1,22 +1,5 @@
-{% extends 'base.html' %}
+{% extends 'form.html' %}
 
-{% block content %}
-<h1>Редактировать товары</h1>
-<form name="product" enctype="multipart/form-data" action="" method="POST">
-{{ formset.management_form }}
-{% for form in formset %}
-    <div class="form">
-      {% for field in form %}
-      <div class="row">
-        <div class="label">{{ field.label }}</div>
-        <div class="field">{{ field }}</div>
-      </div>
-      <hr id="formhr">
-      {% endfor %}
-      {% csrf_token %}
-      <hr>
-    </div>
-    {% endfor %}
-    <input class="red_button" type="submit" value="Отправить">
-</form>
+{% block form %}
+<h1>Добавить товар</h1>
 {% endblock %}
