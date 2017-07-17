@@ -16,9 +16,16 @@ body {
   margin: 0; }
 
 .middle{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 1rem;}
 
 img {
@@ -204,7 +211,9 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;}
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;}
 
 #cart{
   font-size: 2.2rem;
@@ -225,16 +234,25 @@ a {
 /* сортировка товаров*/
 .sort_cart{
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .sort {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #sort_field {
@@ -457,7 +475,9 @@ hr{
     display: -ms-flexbox !important;
     display: flex !important;
     padding: 0.5rem;
-    align-items: flex-end;}
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;}
 
   .home{
     margin-right: auto;
@@ -469,8 +489,13 @@ hr{
 
 @media (min-width: 1000px) {
   .sort_cart{
-    justify-content: space-between;
-    flex-direction: row;}
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;}
 
   .cart{
     margin-top: 0;
@@ -488,3 +513,4 @@ hr{
 
   .image {
     height: 25vw; } }
+}
