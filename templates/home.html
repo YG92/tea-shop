@@ -59,7 +59,7 @@
   <div class="products">
     {% for product in object_list %}
     <div class="prod">
-      <a href="/product/detail/{{ product.pk }}" target="_blank">
+      <a href="/product/detail/{{ product.pk }}">
         <div class="prodWrapper">
           <div class="image">
             <img src="{{ product.image.url }}" alt="image">
@@ -72,5 +72,4 @@
     {% endfor %}
   </div>
 </div>
-
 {% endblock %}
