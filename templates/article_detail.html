@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="prev_page">
-  <a id="previous" href="{{ request.META.HTTP_REFERER }}">&#11013; Назад</a>
-</div>
 <div class="middle art-detail">
         <img src="{{article.image.url}}" alt="image">
         <h1>{{article.title}}</h1>
