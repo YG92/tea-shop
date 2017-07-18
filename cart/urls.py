@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from .import views
-from .views import Remove, CartAddFormView, CartDetailView#, CartRemoveView
+from .views import Remove, CartAddFormView, CartDetailView
 
 urlpatterns = [
 url(r'^add/(?P<id>\d+)/$', CartAddFormView.as_view(), name='cart-add'),
