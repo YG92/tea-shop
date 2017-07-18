@@ -11,9 +11,8 @@ class CartAddFormView(FormView):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
-        product = get_object_or_404(Product, id=kwargs['id'])
         if form.is_valid(request, **kwargs):
-            form.cart_add(request, *args, **kwargs)
+            form.cart_add(request, **kwargs)
             return redirect ('/cart/')
         else:
             return self.form_invalid(form)
