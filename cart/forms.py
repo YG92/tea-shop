@@ -15,17 +15,13 @@ class CartAddProductForm(forms.Form):
     def is_valid(self, request, **kwargs):
         valid = super(CartAddProductForm, self).is_valid()
         self.product = get_object_or_404(Product, id=kwargs['id'])
-        quantity = request.POST.get('quantity')
-        in_stock = self.product.in_stock
-        if int(quantity) <= in_stock:
-            return True
-        else:
+        self.cart = Cart(request)
+        self.cd = self.cleaned_data
+        if self.cart.not_valid(product=self.product, quantity=self.cd['quantity']):
             self.errors['Неверное количество:'] = '''
-                        Всего доступно {} шт.'''.format(in_stock)
+                        Всего доступно {} шт.'''.format(self.product.in_stock)
             return False
-
+        return True
 
     def cart_add(self, request, **kwargs):
-        cart = Cart(request)
-        cd = self.cleaned_data
-        cart.add(product=self.product, quantity=cd['quantity'])
+        self.cart.add(product=self.product, quantity=self.cd['quantity'])
