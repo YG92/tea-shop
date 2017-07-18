@@ -76,7 +76,6 @@
       action="{% url "cart:cart-add" product.id %}" method="POST">
           <div class="form">
             {{form}}
-            {{form.errors}}
             {% csrf_token %}
           </div>
           <input class="red_button" type="submit" value="В корзину">
