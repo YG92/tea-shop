@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import redirect
 from .models import OrderItem
 from django.views.generic import CreateView
 from .forms import OrderCreateForm
@@ -25,6 +25,6 @@ class OrderCreateView(CreateView):
                                         price=item['price'],
                                         quantity=item['quantity'])
             cart.clear()
-            return HttpResponse('Спасибо за покупку')
+            return redirect('home')
         else:
             return self.form_invalid(form)
