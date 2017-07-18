@@ -1,6 +1,6 @@
 from django.shortcuts import redirect
 from .models import OrderItem
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView
 from .forms import OrderCreateForm
 from cart.cart import Cart
 
@@ -25,6 +25,9 @@ class OrderCreateView(CreateView):
                                         price=item['price'],
                                         quantity=item['quantity'])
             cart.clear()
-            return redirect('home')
+            return redirect('order:thanks')
         else:
             return self.form_invalid(form)
+
+class ThanksView(TemplateView):
+    template_name = 'thanks.html'
