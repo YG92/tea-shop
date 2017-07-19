@@ -3,6 +3,7 @@
 {% block cart %}
 <hr>
   <h2>Ваши заказы</h2>
+  {% if order_list %}
   {% for order in order_list %}
   <div class="info">
       <p>Товаров: {{order.get_total_quantity}}</p>
@@ -27,4 +28,9 @@
     {% endfor %}
   </table>
   {% endfor %}
+  {% else %}
+  <div class="info">
+      <p>Нет заказов</p>
+  </div>
+  {% endif %}
 {% endblock %}

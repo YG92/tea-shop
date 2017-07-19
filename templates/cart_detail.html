@@ -3,6 +3,7 @@
 {% block content %}
 <div class="middle">
   <h2>Ваша корзина</h2>
+  {% if not cart.empty %}
   <div class="info">
       <p>Товаров: {{cart.get_total_quantity}}</p>
       <p>Сумма: {{cart.get_total_price}}</p>
@@ -31,6 +32,11 @@
       {% endfor %}
     </table>
     <a href="/order/create/" class="red_button">Оформить</a>
+  {% else %}
+  <div class="info">
+      <p>Корзина пуста</p>
+  </div>
+  {% endif %}
     {% block cart %}
     {% endblock %}
   </div>
