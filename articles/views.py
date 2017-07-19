@@ -13,12 +13,11 @@ class ArticleListView(ListView):
 
     model = Article
     template_name = 'article_list.html'
+    context_object_name = 'articles'
 
-
-    def get_context_data(self, **kwargs):
-        context = super(ArticleListView, self).get_context_data(**kwargs)
-        context["articles"] = Article.objects.all().order_by('-added_at')
-        return context
+    def get_queryset(self, **kwargs):
+        queryset = super(ArticleListView, self).get_queryset()
+        return queryset.order_by('-added_at')
 
 
 class AddArticleView(CreateView):
