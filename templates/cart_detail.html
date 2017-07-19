@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="middle">
-  <h1>Ваша корзина</h1>
+  <h2>Ваша корзина</h2>
   <div class="info">
       <p>Товаров: {{cart.get_total_quantity}}</p>
       <p>Сумма: {{cart.get_total_price}}</p>
@@ -31,6 +31,7 @@
       {% endfor %}
     </table>
     <a href="/order/create/" class="red_button">Оформить</a>
+    {% block cart %}
+    {% endblock %}
   </div>
-</div>
 {% endblock %}
