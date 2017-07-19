@@ -1,0 +1,30 @@
+{% extends 'cart_detail.html' %}
+
+{% block cart %}
+<hr>
+  <h2>Ваши заказы</h2>
+  {% for order in order_list %}
+  <div class="info">
+      <p>Товаров: {{order.get_total_quantity}}</p>
+      <p>Сумма: {{order.get_total_cost}}</p>
+  </div>
+  <table>
+    <tr id="head">
+      <th></th>
+      <th>Товар</th>
+      <th>Количество</th>
+      <th>Цена</th>
+      <th>Сумма</th>
+    </tr>
+    {% for item in order.items.all %}
+    <tr>
+      <td><img src="{{item.product.image.url}}" alt="image"></td>
+      <td id="product_name">{{ item.product }}</td>
+      <td>{{ item.price }}р</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.get_cost }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endfor %}
+{% endblock %}
