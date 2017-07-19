@@ -20,7 +20,13 @@ form input{
   background-color: #fff;
   border: 1px solid gray;
 }
-h1 {
+form a{
+  color: #b30000;
+}
+form a:hover{
+  text-decoration: underline;
+}
+h2 {
   width: 100%;
 }
 .order_title{
