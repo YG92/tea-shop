@@ -46,29 +46,29 @@
   <div class="products">
     {% for product in object_list %}
     <div class="prod">
-      <a href="/product/detail/{{ product.pk }}">
         <div class="prodWrapper">
           <div class="image">
             <img src="{{ product.image.url }}" alt="image">
           </div>
           <div id="product-name"><h3>{{product.name}}</h3></div>
           <div id="price"><p>{{product.price}}p</p></div>
-          <div class="available">
-            {% if not product.in_stock %}
-            <h2 id="not_in_stock">Нет в наличии</h2>
-            {% endif %}
-          </div>
           {% if product.in_stock %}
           <form id="cart_add" action="" method="POST">
             <input type="hidden" value="{{product.id}}" name="product_id">
             <input class="red_button" type="submit" value="В корзину">
             {% csrf_token %}
           </form>
+          {% else %}
+          <div class="available">
+            <h2 id="not_in_stock">Нет в наличии</h2>
+          </div>
           {% endif %}
         </div>
-      </a>
+        {% include 'product_detail.html' %}
+      </div>
     </div>
     {% endfor %}
   </div>
 </div>
+{% include 'thanks.html' %}
 {% endblock %}
