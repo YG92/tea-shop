@@ -83,3 +83,6 @@ form[name="personal"] input[type="submit"]{
   text-align: center;
   padding-left: 2%;
 }
+#cart_add{
+  width: 100%;
+}
