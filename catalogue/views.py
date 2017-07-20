@@ -56,6 +56,13 @@ class ProductListView(ListView):
             queryset = queryset.order_by(self.sort_field)
         return queryset
 
+    def post(self, request, *args, **kwargs):
+        cart = Cart(request)
+        product_id = request.POST.get('product_id')
+        product = Product.objects.get(pk=product_id)
+        cart.add(product)
+        return redirect('home')
+
 
 class AddProductsView(CreateView):
     form_class = AddProductForm
