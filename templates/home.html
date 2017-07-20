@@ -66,6 +66,18 @@
           </div>
           <div id="product-name"><h3>{{product.name}}</h3></div>
           <div id="price"><p>{{product.price}}p</p></div>
+          <div class="available">
+            {% if not product.in_stock %}
+            <h2 id="not_in_stock">Нет в наличии</h2>
+            {% endif %}
+          </div>
+          {% if product.in_stock %}
+          <form id="cart_add" action="" method="POST">
+            <input type="hidden" value="{{product.id}}" name="product_id">
+            <input class="red_button" type="submit" value="В корзину">
+            {% csrf_token %}
+          </form>
+          {% endif %}
         </div>
       </a>
     </div>
