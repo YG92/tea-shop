@@ -315,9 +315,23 @@ hr{
 /*конец*/
 
 .thanks{
-  position: relative;
+  position: absolute;
+  top: 10%;
   width: 35vw;
 }
+
+.close{
+  color: #b30000;
+  font-size: 3rem;
+  position: absolute;
+  top: -10%;
+}
+
+.close:hover,
+.close:focus{
+  cursor: pointer;
+}
+
 .thanks_content h1{
   position: absolute;
   top: 40%;
