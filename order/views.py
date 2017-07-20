@@ -18,9 +18,14 @@ class OrderCreateView(LoginRequiredMixin, CreateView):
 
     def post(self, request, *args, **kwargs):
         cart = Cart(request)
-        form = self.form_class(request.POST)
+        user = self.request.user
+        form = self.form_class(request.POST, initial={
+                                            'first_name': user.first_name,
+                                            'last_name': user.last_name,
+                                            'city': user.city,
+                                            'address': user.address})
         if form.is_valid():
-            form.instance.customer = self.request.user
+            form.instance.customer = user
             order = form.save()
             for item in cart:
                 OrderItem.objects.create(order=order,
