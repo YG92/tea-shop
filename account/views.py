@@ -1,11 +1,11 @@
 from django.shortcuts import redirect
 from django.views.generic import CreateView, TemplateView
-from django.contrib.auth.forms import UserCreationForm
+from .forms import UserForm
 from django.contrib.auth import authenticate, login
 
 
 class RegisterFormView(CreateView):
-    form_class = UserCreationForm
+    form_class = UserForm
     template_name = 'register.html'
 
     def post(self, request, *args, **kwargs):
@@ -15,4 +15,4 @@ class RegisterFormView(CreateView):
             new_user = authenticate(username=form.cleaned_data['username'],
                                     password=form.cleaned_data['password1'])
         login(self.request, new_user)
-        return redirect('/order/profile')
+        return redirect('/order/profile/')
