@@ -10,5 +10,4 @@ urlpatterns = [
     url(r'^product/', include('catalogue.urls')),
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^order/', include('order.urls', namespace='order')),
-    url(r'^article/', include('articles.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

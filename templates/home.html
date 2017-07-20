@@ -14,19 +14,6 @@
       {% endfor %}
     </div>
   </div>
-  <div class="articles">
-    <p><a href="/article/list">Статьи</a></p>
-    {% for article in articles %}
-    <div class="art">
-      <span>{{ article.title }}</span>
-      <img src="{{article.image.url}}" alt="image">
-      <div class="text">
-        {{ article.text }}
-        <a class="readmore" href="/article/detail/{{ article.pk }}">читать</a>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
 </div>
 <div class="middle">
   <div class="sort_cart">

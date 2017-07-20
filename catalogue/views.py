@@ -1,7 +1,6 @@
 from django.shortcuts import render, resolve_url, redirect
 from django.forms.models import modelformset_factory
 from .models import Product, Category, Subcategory
-from articles.models import Article
 from django.views.generic import ListView, CreateView, DetailView, TemplateView
 from .forms import AddProductForm
 from cart.forms import CartAddProductForm
@@ -16,7 +15,6 @@ class ProductDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductDetailView, self).get_context_data(**kwargs)
-        context["articles"] = Article.objects.all().order_by('-added_at')[0:3]
         context["cats"] = Category.objects.all()
         context["subcategory"] = self.subcat
         context["form"] = CartAddProductForm
@@ -34,7 +32,6 @@ class ProductListView(ListView):
         context = super(ProductListView, self).get_context_data(**kwargs)
         context["cats"] = Category.objects.all()
         context["subcategory"] = self.subcat
-        context["articles"] = Article.objects.all().order_by('-added_at')[0:3]
         context["cart"] = Cart(self.request)
         return context
 
