@@ -35,14 +35,16 @@ a {
   text-decoration: none;
 }
 
-a:not(#cat_link){
+a{
   color: #fff;
 }
 
 #cat_link{
   color: inherit;
 }
-
+.red_link{
+  color: #b30000;
+}
 footer {
   background-color: gray;
   color: #1a1a1a;
