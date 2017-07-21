@@ -14,6 +14,6 @@ class RegisterFormView(FormView):
             new_user = authenticate(username=form.cleaned_data['username'],
                                     password=form.cleaned_data['password1'])
             login(self.request, new_user)
-            return redirect('/order/profile/')
+            return redirect('/product/')
         else:
             return self.form_invalid(form)
