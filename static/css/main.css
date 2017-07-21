@@ -33,8 +33,16 @@ img {
 
 a {
   text-decoration: none;
+}
+
+a:not(#cat_link){
   color: #fff;
 }
+
+#cat_link{
+  color: inherit;
+}
+
 footer {
   background-color: gray;
   color: #1a1a1a;
@@ -262,6 +270,20 @@ footer {
 
 
 /*вывод продуктов*/
+.category{
+  margin-bottom: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.cat{
+  font-size: 1.3rem;
+  font-weight: bold;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+}
+
 hr{
   width: 100%;
 }
@@ -307,6 +329,9 @@ hr{
   color: #b30000;
   font-size: 1.1rem; }
 
+#price p{
+  margin: 0;
+}
 .prod {
   width: 100%; }
 
@@ -468,7 +493,7 @@ hr{
     color: #b30000; }
 
   .middle {
-    width: 76%; }
+    width: 90%; }
 
   .cats .list {
     display: -webkit-box !important;

@@ -11,6 +11,10 @@ form li {
   width: 100%;
   margin: 5%;
 }
+#cart_add{
+  width: auto;
+}
+
 form{
   width: 60%;
   height: 100%;
@@ -82,7 +86,4 @@ form[name="personal"] input[type="submit"]{
   width: 15vw;
   text-align: center;
   padding-left: 2%;
-}
-#cart_add{
-  width: 100%;
 }
