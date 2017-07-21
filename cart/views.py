@@ -1,21 +1,7 @@
 from .cart import Cart
-from .forms import CartAddProductForm
 from catalogue.models import Product
-from django.shortcuts import resolve_url, redirect, get_object_or_404
-from django.views.generic import FormView, TemplateView
-
-
-class CartAddFormView(FormView):
-    form_class = CartAddProductForm
-    template_name = 'cart_add.html'
-
-    def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        if form.is_valid(request, **kwargs):
-            form.cart_add(request, **kwargs)
-            return redirect ('/cart/')
-        else:
-            return self.form_invalid(form)
+from django.shortcuts import redirect, get_object_or_404
+from django.views.generic import TemplateView
 
 
 class CartDetailView(TemplateView):
