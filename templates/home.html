@@ -1,21 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="nav">
-  <div id="cats" class="cats">
-    <p class="touch-cats">Категории</p>
-    <div class="list">
-      {% for cat in cats %}
-        <div class="li main-cat">{{ cat.name }}
-        {% for subcat in cat.subcategory_set.all %}
-        <div class="li sub"><a href="/product/{{ subcat.id }}">{{ subcat.name }}</a></div>
-        {% endfor %}
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-</div>
 <div class="middle">
+  <div class="category">
+    {% for cat in cats %}
+    <div class="cat">
+      <a href="/product/{{cat.id}}/" id="cat_link">{{cat}}</a>
+    </div>
+    {% endfor %}
+  </div>
+  <hr>
   <div class="sort_cart">
     <form action="" class="sort">
       <select id="sort_field" name="sort_field">
@@ -70,5 +64,4 @@
     {% endfor %}
   </div>
 </div>
-{% include 'thanks.html' %}
 {% endblock %}
