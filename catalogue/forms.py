@@ -7,7 +7,7 @@ class AddProductForm(forms.ModelForm):
         model = Product
         exclude = ['rating',]
         labels = {
-                'subcategory': ('Выберите категорию:'),
+                'category': ('Выберите категорию:'),
                 'name': ('Название товара:'),
                 'image': ('Загрузите изображение:'),
                 'price': ('Цена'),

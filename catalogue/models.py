@@ -7,16 +7,9 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-class Subcategory(models.Model):
-    name = models.CharField(max_length=200)
-    category = models.ForeignKey(Category)
-
-    def __str__(self):
-        return self.name
-
 
 class Product(models.Model):
-    subcategory = models.ForeignKey(Subcategory)
+    category = models.ForeignKey(Category)
     name = models.CharField(max_length=200)
     price = models.IntegerField()
     image = models.ImageField(upload_to="")
