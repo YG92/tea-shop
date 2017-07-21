@@ -62,6 +62,6 @@ class Cart():
         self.session.modified = True
 
     def empty(self):
-        if self.cart == {}:
-            return True
-        return False
+        if self.cart:
+            return False
+        return True
