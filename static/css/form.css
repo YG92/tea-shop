@@ -87,3 +87,8 @@ form[name="personal"] input[type="submit"]{
   text-align: center;
   padding-left: 2%;
 }
+
+.cart_form{
+  margin-bottom: 0.5rem;
+  width: 5rem;
+}

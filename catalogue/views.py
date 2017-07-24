@@ -38,9 +38,10 @@ class ProductListView(ListView):
 
     def post(self, request, *args, **kwargs):
         cart = Cart(request)
+        quantity = 1
         product_id = request.POST.get('product_id')
         product = Product.objects.get(pk=product_id)
-        cart.add(product)
+        cart.add(product, quantity)
         return redirect (request.META.get('HTTP_REFERER'))
 
 

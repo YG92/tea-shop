@@ -8,6 +8,13 @@
       <p>Товаров: {{cart.get_total_quantity}}</p>
       <p>Сумма: {{cart.get_total_price}}</p>
   </div>
+  <h4>
+    {% if messages %}
+      {% for message in messages %}
+        {{message}}
+      {% endfor %}
+    {% endif %}
+  </h4>
     <table>
       <tr id="head">
         <th></th>
@@ -23,7 +30,16 @@
         <td><img src="{{item.product.image.url}}" alt="image"></td>
         <td id="product_name">{{ item.product.name }}</td>
         <td>{{ item.product.price }}р</td>
-        <td>{{ item.quantity }}</td>
+        <td>
+          <form id="cart_add" action="" method="POST">
+            <input type="hidden" value="{{item.product.id}}" name="product_id">
+            <input type="number" min="1" value="{{ item.quantity }}"
+            name="quantity" class="cart_form">
+            <input type="submit" value="Обновить"
+            name="update" class="cart_form">
+            {% csrf_token %}
+          </form>
+        </td>
         <td>{{ item.total_price }}р</td>
         <td>
           <a href="{% url "cart:cart-remove" item.product.id %}" class="red_link">&#x274c;</a>

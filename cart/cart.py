@@ -12,20 +12,28 @@ class Cart():
             cart = self.session[settings.CART_SESSION_ID] = {}
         self.cart = cart
 
-    def not_valid(self, product, quantity):
+    def quantity_valid(self, request, product, quantity):
         in_stock = product.in_stock
-        if int(quantity) > in_stock:
+        if int(quantity) <= in_stock:
             return True
         return False
 
-    def add(self, product):
+    def add(self, product, quantity):
         product_id = str(product.id)
         if product_id not in self.cart:
-            self.cart[product_id] = {'quantity': 1,
+            self.cart[product_id] = {'quantity': quantity,
                                      'price': str(product.price)}
         else:
-            self.cart[product_id]['quantity'] += 1
-        product.in_stock -= 1
+            self.cart[product_id]['quantity'] += quantity
+        product.in_stock -= quantity
+        product.save()
+        self.save()
+
+    def update(self, product, quantity):
+        quantity = int(quantity)
+        product_id = str(product.id)
+        self.cart[product_id]['quantity'] = quantity
+        product.in_stock -= quantity
         product.save()
         self.save()
 
