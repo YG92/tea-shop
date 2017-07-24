@@ -39,6 +39,7 @@
   </div>
   <div class="products">
     {% for product in object_list %}
+    {% if product.in_stock > 0 %}
     <div class="prod">
         <div class="prodWrapper">
           <div class="image">
@@ -60,6 +61,7 @@
         </div>
         {% include 'product_detail.html' %}
       </div>
+      {% endif %}
     </div>
     {% endfor %}
   </div>
