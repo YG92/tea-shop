@@ -1,0 +1,24 @@
+.col_wrapper {
+  margin-top: 1rem;}
+
+.order_prod_detail{
+  margin-top: 0;
+}
+
+#product-name h1{
+  margin-top: 0;
+}
+
+.price p,
+.price h2,
+.available p,
+.available h2{
+  display: inline;
+}
+
+#in_stock{
+  color: green;
+}
+#not_in_stock{
+  color: #b30000;
+}

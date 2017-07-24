@@ -1,0 +1,94 @@
+form li {
+  list-style: none;
+}
+.error{
+  color: #b30000;
+}
+.form {
+  margin: 5% 0;
+}
+#cart_form{
+  width: 100%;
+  margin: 5%;
+}
+#cart_add{
+  width: auto;
+}
+
+form{
+  width: 60%;
+  height: 100%;
+}
+form input{
+  color: black;
+  background-color: #fff;
+  border: 1px solid gray;
+}
+form a{
+  color: #b30000;
+}
+form a:hover{
+  text-decoration: underline;
+}
+h2 {
+  width: 100%;
+}
+.order_title{
+  margin-top: 3rem;
+}
+#order_list > li{
+  list-style: initial;
+}
+textarea {
+  height: 50vh;
+  width: 35vw;
+}
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.label {
+  width: 40%;
+}
+.field {
+  height: 100%;
+  width: auto;
+}
+#formhr {
+  height: 1px;
+  border: none;
+  background-color: #e6e6e6;
+  color: #e6e6e6;
+}
+input[name*="name"],
+input[name*="title"]{
+  width: 34vw;
+  text-align: left;
+  padding-left: 2%;
+}
+input[name*="image"]{
+  color: black;
+  background-color: #fff;
+  width: 100%;
+  border: none;
+}
+form[name="personal"] input{
+  width: 34vw;
+  text-align: left;
+  padding-left: 2%;
+}
+
+form[name="personal"] input[type="submit"]{
+  width: 15vw;
+  text-align: center;
+  padding-left: 2%;
+}
+
+.cart_form{
+  margin-bottom: 0.5rem;
+  width: 5rem;
+}
