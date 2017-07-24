@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from .cart import Cart
 from catalogue.models import Product
 from django.shortcuts import redirect, get_object_or_404
