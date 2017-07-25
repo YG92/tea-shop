@@ -41,7 +41,7 @@
     {% for product in object_list %}
     {% if product.in_stock > 0 %}
     <div class="prod">
-        <div class="prodWrapper">
+        <div class="prodWrapper" id="trigger">
           <div class="image">
             <img src="{{ product.image.url }}" alt="image">
           </div>
@@ -59,7 +59,9 @@
           </div>
           {% endif %}
         </div>
-        {% include 'product_detail.html' %}
+        <div class="product_detail" id="product_detail">
+          {% include 'product_detail.html' %}
+        </div>
       </div>
       {% endif %}
     </div>

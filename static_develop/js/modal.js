@@ -1,13 +1,12 @@
+var modal = document.getElementById('product_detail');
 var close = document.getElementById('close');
-var modal = document.getElementById('modal');
+var trigger = document.getElementById('trigger');
 
+
+trigger.onclick = function(){
+  modal.style.display = "block";
+}
 
 close.onclick = function(){
   modal.style.display = "none";
-}
-
-window.onclick = function(event){
-  if(event.target != modal){
-    modal.style.display = "none";
-  }
 }
