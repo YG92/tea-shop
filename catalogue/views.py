@@ -48,4 +48,4 @@ class ProductListView(ListView):
 class AddProductsView(CreateView):
     form_class = AddProductForm
     template_name = 'add_product.html'
-    success_url = '/product/'
+    success_url = '/'
