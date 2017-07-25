@@ -13,7 +13,7 @@ SECRET_KEY = '3@i=%z+t*0+2n((y_ih3)f_svyav4bn5kp#$h()aw%7rzudgwc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['yuliagal.pythonanywhere.com']
 
 
 # Application definition
