@@ -22,7 +22,7 @@
     </form>
     <div class="cart">
       <div class="cart-wrap">
-        <span id="cart"><a href="/cart/">&#128722;</a></span>
+        <span id="cart"><a href="/cart/">U+1F6D2</a></span>
         <div class="cart-content">
           <p>Товаров: {{cart.get_total_quantity}}</p>
           <p>Сумма: {{cart.get_total_price}}р</p>
@@ -45,7 +45,7 @@
           <div class="image">
             <img src="{{ product.image.url }}" alt="image">
           </div>
-          <div id="product-name"><h3>{{product.name}}</h3></div>
+          <div id="product-name"><h4>{{product.name}}</h4></div>
           <div id="price"><p>{{product.price}}p</p></div>
           {% if product.in_stock %}
           <form id="cart_add" action="" method="POST">
