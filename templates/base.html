@@ -9,8 +9,6 @@
   <link rel="stylesheet" href="{% static "css/form.css" %}">
   <link rel="stylesheet" href="{% static "css/table.css" %}">
   <link rel="stylesheet" href="{% static "css/product-detail.css" %}">
-  <script defer src="{% static "js/menu.js" %}"></script>
-  <script defer src="{% static "js/modal.js" %}"></script>
   <title>Китайский чай</title>
 </head>
 <body>
@@ -29,7 +27,7 @@
         &#9776;
       </span>
       <div class="list">
-        <div class="li home"><a href="/product/">На главную</a></div>
+        <div class="li home"><a href="/">На главную</a></div>
         <div class="li username">
           {% if request.user.is_authenticated %}
           Здравствуйте, {{ request.user.username}}!
