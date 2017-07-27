@@ -41,7 +41,8 @@
     {% for product in object_list %}
     {% if product.in_stock > 0 %}
     <div class="prod">
-        <div class="prodWrapper" id="trigger">
+        <div class="prodWrapper"
+        onclick="parentNode.getElementsByClassName('product_detail')[0].style.display='block'">
           <div class="image">
             <img src="{{ product.image.url }}" alt="image">
           </div>
