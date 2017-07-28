@@ -20,8 +20,8 @@
       <tr id="head">
         <th></th>
         <th>Товар</th>
-        <th>Цена</th>
         <th>Количество</th>
+        <th>Цена</th>
         <th>Сумма</th>
         <th>Удалить</th>
       </tr>
@@ -30,7 +30,6 @@
         {{cart.product_ids}}
         <td><img src="{{item.product.image.url}}" alt="image"></td>
         <td id="product_name">{{ item.product.name }}</td>
-        <td>{{item.product.price}}p</td>
         <td>
           <form id="cart_add" action="" method="POST">
             <input type="hidden" value="{{item.product.id}}" name="product_id">
@@ -41,6 +40,7 @@
             {% csrf_token %}
           </form>
         </td>
+        <td>{{item.product.price}}p</td>
         <td>{{ item.total_price }}р</td>
         <td>
           <a href="{% url "cart:cart-remove" item.product.id %}" class="red_link">&#x274c;</a>
