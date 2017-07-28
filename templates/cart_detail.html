@@ -15,6 +15,7 @@
       {% endfor %}
     {% endif %}
   </h4>
+  <div class="table_wrap">
     <table>
       <tr id="head">
         <th></th>
@@ -29,7 +30,6 @@
         {{cart.product_ids}}
         <td><img src="{{item.product.image.url}}" alt="image"></td>
         <td id="product_name">{{ item.product.name }}</td>
-        <td>{{ item.product.price }}р</td>
         <td>
           <form id="cart_add" action="" method="POST">
             <input type="hidden" value="{{item.product.id}}" name="product_id">
@@ -40,6 +40,7 @@
             {% csrf_token %}
           </form>
         </td>
+        <td>{{ item.product.price }}р</td>
         <td>{{ item.total_price }}р</td>
         <td>
           <a href="{% url "cart:cart-remove" item.product.id %}" class="red_link">&#x274c;</a>
@@ -47,8 +48,9 @@
       </tr>
       {% endfor %}
     </table>
-    <a href="/order/create/" class="red_button">Оформить</a>
-    <a href="/" class="red_button">Продолжить покупки</a>
+  </div>
+  <a href="/order/create/" class="red_button">Оформить</a>
+  <a href="/" class="red_button" id="back_to_shopping">Продолжить покупки</a>
   {% else %}
   <div class="info">
       <p>Корзина пуста</p>

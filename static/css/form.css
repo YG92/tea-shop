@@ -16,9 +16,9 @@ form li {
 }
 
 form{
+  width: 60%;
   height: 100%;
 }
-
 form input{
   color: black;
   background-color: #fff;
@@ -91,10 +91,4 @@ form[name="personal"] input[type="submit"]{
 .cart_form{
   margin-bottom: 0.5rem;
   width: 5rem;
-}
-
-@media (min-width: 800px ){
-  form{
-    width: 60%;
-  }
 }

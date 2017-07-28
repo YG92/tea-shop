@@ -26,7 +26,8 @@ body {
           flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center;}
+          align-items: center;
+  margin: 1rem;}
 
 img {
   width: 100%; }
@@ -49,7 +50,7 @@ footer {
   background-color: gray;
   color: #1a1a1a;
   padding: 2%;
-  margin-top: auto; }
+  margin-top: 1rem; }
 
 .username { /*не выводить на маленьких экранах*/
   display: none;}
@@ -91,7 +92,6 @@ footer {
   font-weight: bold;
   color: #b30000;
   font-family: "Lobster";
-  font-style: italic;
   text-shadow: 2px 3px black; }
 
 .menu-icon {
@@ -268,23 +268,15 @@ footer {
 .category{
   margin-bottom: 0.5rem;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 .cat{
   font-size: 1.3rem;
   font-weight: bold;
   width: 33%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 hr{
@@ -340,15 +332,13 @@ hr{
   margin: 0;
 }
 .prod {
+  position: relative;
   width: 100%; }
 
 #product-name{
   height: 3rem;}
 /*конец*/
 
-.main-cont{
-    margin: 0.5rem;
-}
 
 @media (min-width: 350px) {
   .red_button,

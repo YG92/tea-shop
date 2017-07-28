@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{% static "css/form.css" %}">
   <link rel="stylesheet" href="{% static "css/table.css" %}">
   <link rel="stylesheet" href="{% static "css/product-detail.css" %}">
+  <link rel="stylesheet" href="{% static "fontello-2b68b616/css/fontello.css" %}">
   <script defer src="{% static "js/menu.js" %}"></script>
   <title>Китайский чай</title>
 </head>
@@ -29,9 +30,11 @@
       </span>
       <div class="list">
         <div class="li home"><a href="/">На главную</a></div>
-        <div class="li username">
+        <div class="li">
           {% if request.user.is_authenticated %}
-          Здравствуйте, {{ request.user.username}}!
+          <div class="username">
+            Здравствуйте, {{ request.user.username}}!
+          </div>
           {% else %}
           <a href="/account/register">Зарегистрироваться</a>
           {% endif %}

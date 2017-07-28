@@ -22,7 +22,9 @@
     </form>
     <div class="cart">
       <div class="cart-wrap">
-        <span id="cart"><a href="/cart/">Корзина</a></span>
+        <span id="cart"><a href="/cart/">
+          <i class="icon-shopping-basket"></i>
+        </a></span>
         <div class="cart-content">
           <p>Товаров: {{cart.get_total_quantity}}</p>
           <p>Сумма: {{cart.get_total_price}}р</p>
@@ -41,9 +43,9 @@
     {% for product in object_list %}
     {% if product.in_stock > 0 %}
     <div class="prod">
-        <div class="prodWrapper"
-        onclick="parentNode.getElementsByClassName('product_detail')[0].style.display='block'">
-          <div class="image">
+        <div class="prodWrapper">
+          <div class="image"
+          onclick="parentNode.parentNode.getElementsByClassName('product_detail')[0].style.display='block'">
             <img src="{{ product.image.url }}" alt="image">
           </div>
           <div id="product-name"><h4>{{product.name}}</h4></div>
