@@ -35,7 +35,7 @@ class OrderCreateView(LoginRequiredMixin, FormView):
                                         price=item['price'],
                                         quantity=item['quantity'])
             cart.clear()
-            return redirect('/')
+            return redirect('/thanks/')
         else:
             return self.form_invalid(form)
 

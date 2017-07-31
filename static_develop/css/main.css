@@ -48,11 +48,8 @@ a{
 footer {
   background-color: gray;
   color: #1a1a1a;
-  padding: 2%;
+  padding: 1rem;
   margin-top: auto; }
-
-.username { /*не выводить на маленьких экранах*/
-  display: none;}
 
 
 /*красные кнопки*/
@@ -99,7 +96,7 @@ footer {
   color: #b30000;
   position: absolute;
   top: 1%;
-  margin: 0 2%; }
+  margin: 0 0.5rem; }
 
 .menu .list {
   display: none; }
@@ -305,7 +302,7 @@ hr{
 
 .prodWrapper {
   border-bottom: 1px solid gray;
-  padding: 5%;
+  padding: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

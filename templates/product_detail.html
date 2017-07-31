@@ -1,11 +1,20 @@
   <div class="modal_bcg"></div>
   <div class="modal">
-    <span class="close" onclick="parentNode.parentNode.style.display='none'">&times;</span>
+    <span class="close">&times;</span>
     <div class="col_wrapper">
       <div class="left_col">
         <div class="detail_image">
           <img src="{{product.image.url}}" alt="image">
         </div>
+        <div class="price">
+          <p>Цена: </p>
+          <h2>{{product.price}}p</h2>
+        </div>
+        <form id="cart_add" action="" method="POST">
+          <input type="hidden" value="{{product.id}}" name="product_id">
+          <input class="red_button" type="submit" value="В корзину">
+          {% csrf_token %}
+        </form>
       </div>
       <div class="right_col">
         <div id="product-name">
@@ -14,21 +23,6 @@
         <div class="description">
           <p>{{product.description}}</p>
         </div>
-        <div class="price">
-          <p>Цена: </p>
-          <h2>{{product.price}}p</h2>
-        </div>
-        {% if product.in_stock %}
-        <form id="cart_add" action="" method="POST">
-          <input type="hidden" value="{{product.id}}" name="product_id">
-          <input class="red_button" type="submit" value="В корзину">
-          {% csrf_token %}
-        </form>
-        <div class="available">
-        {% else %}
-          <h2 id="not_in_stock">Нет в наличии</h2>
-        </div>
-        {% endif %}
       </div>
     </div>
   </div>
