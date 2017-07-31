@@ -45,6 +45,11 @@
   margin-top: 0;
 }
 
+.price{
+  display: flex;
+  flex-direction: column;
+}
+
 .thanks_inner{
   width: 90%;
 }
@@ -71,10 +76,16 @@
 .close:focus {
   cursor: pointer;}
 
-  @media (min-width: 500px) {
-    .thanks_inner {
-      width: 70%;
-    }
+@media (min-width: 500px) {
+  .price{
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .thanks_inner {
+    width: 70%;
+  }
 }
 
 @media (min-width: 700px) {

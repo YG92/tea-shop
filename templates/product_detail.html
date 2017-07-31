@@ -6,19 +6,18 @@
         <div class="detail_image">
           <img src="{{product.image.url}}" alt="image">
         </div>
-        <div class="price">
-          <p>Цена: </p>
-          <h2>{{product.price}}p</h2>
-        </div>
-        <form id="cart_add" action="" method="POST">
-          <input type="hidden" value="{{product.id}}" name="product_id">
-          <input class="red_button" type="submit" value="В корзину">
-          {% csrf_token %}
-        </form>
       </div>
       <div class="right_col">
         <div id="product-name">
           <h1>{{product.name}}</h1>
+        </div>
+        <div class="price">
+          <h2>{{product.price}}p</h2>
+          <form id="cart_add" action="" method="POST">
+            <input type="hidden" value="{{product.id}}" name="product_id">
+            <input class="red_button" type="submit" value="В корзину">
+            {% csrf_token %}
+          </form>
         </div>
         <div class="description">
           <p>{{product.description}}</p>
