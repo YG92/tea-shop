@@ -70,7 +70,6 @@ input[name*="name"],
 input[name*="title"]{
   width: 34vw;
   text-align: left;
-  padding-left: 2rem;
 }
 input[name*="image"]{
   color: black;
@@ -81,13 +80,11 @@ input[name*="image"]{
 form[name="personal"] input{
   width: 34vw;
   text-align: left;
-  padding-left: 2rem;
 }
 
 form[name="personal"] input[type="submit"]{
   width: 15vw;
   text-align: center;
-  padding-left: 2rem;
 }
 
 .cart_form{
