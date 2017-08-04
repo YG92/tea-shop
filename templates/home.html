@@ -9,9 +9,7 @@
     <div class="modal_bcg"></div>
     <div class="thanks_inner">
       <img src="/media/frame.jpg" alt="image">
-      <span class="close"
-        onclick="parentNode.parentNode.style.display='none'">&times;
-      </span>
+      <span class="close">&times;</span>
       <h1 id="thanks_message">Спасибо за покупку!</h1>
     </div>
   </div>
@@ -61,7 +59,7 @@
     {% if product.in_stock > 0 %}
     <div class="prod">
         <div class="prodWrapper">
-          <div class="image" onclick="showModal(parentNode.parentNode)">
+          <div class="image">
             <img src="{{ product.image.url }}" alt="image">
           </div>
           <div id="product-name"><h4>{{product.name}}</h4></div>

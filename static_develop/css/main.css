@@ -339,6 +339,9 @@ hr{
 .prod {
   width: 100%; }
 
+.prodWrapper:hover {
+  border: 1px solid gray;}
+
 #product-name{
   height: 3rem;}
 /*конец*/
