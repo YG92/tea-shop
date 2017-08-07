@@ -1,7 +1,6 @@
-{% extends 'cart_detail.html' %}
+{% extends 'base.html' %}
 
-{% block cart %}
-<hr>
+{% block content %}
   <h2>Ваши заказы</h2>
   {% if order_list %}
   {% for order in order_list %}
