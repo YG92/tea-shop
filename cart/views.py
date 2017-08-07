@@ -19,7 +19,7 @@ class CartDetailView(TemplateView):
         cart = Cart(request)
         product_id = request.POST.get('product_id')
         product = Product.objects.get(pk=product_id)
-        if request.POST['update'] == "Обновить":
+        if request.POST['update'] == "Обновить":   #обновляем кол-во товаров
             quantity = request.POST.get('quantity')
             if cart.quantity_valid(request, product, quantity):
                 cart.update(product, quantity)
@@ -27,5 +27,5 @@ class CartDetailView(TemplateView):
                 messages.error(request, "Доступно всего %s" %(product.in_stock))
             return redirect ("/cart/")
         else:
-            cart.remove(product)
+            cart.remove(product)  #удаляем товар
             return redirect ("/cart/")

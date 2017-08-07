@@ -17,6 +17,7 @@ class OrderCreateView(LoginRequiredMixin, FormView):
         context["cart"] = Cart(self.request)
         return context
 
+    #автозаполнение полей данными юзера
     def get_initial(self):
         initial = super(OrderCreateView, self).get_initial()
         user = self.request.user
@@ -25,6 +26,7 @@ class OrderCreateView(LoginRequiredMixin, FormView):
         return initial
 
 
+    #товары в заказе
     def form_valid(self, form):
         cart = Cart(self.request)
         if not cart.empty():

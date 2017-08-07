@@ -16,6 +16,8 @@ class ProductListView(ListView):
         context["cats"] = Category.objects.all()
         context["category"] = self.cat
         context["cart"] = Cart(self.request)
+
+        #проверяем, совершена ли покупка. Если да, выведется модальное окно
         if "order_completed" in self.request.session:
             context["success"] = self.request.session["order_completed"]
             self.request.session["order_completed"] = False
@@ -23,11 +25,13 @@ class ProductListView(ListView):
             context["success"] = False
         return context
 
+    #получаем категорию товара
     def get(self, request, *args, **kwargs):
         if self.kwargs["cat"]:
             self.cat = Category.objects.get(pk=self.kwargs["cat"])
         return super(ProductListView, self).get(request, *args, **kwargs)
 
+    #сортируем товары
     def dispatch(self, request, *args, **kwargs):
         self.sort_field = request.GET.get('sort_field')
         return super(ProductListView, self).dispatch(request, *args, **kwargs)
@@ -41,6 +45,7 @@ class ProductListView(ListView):
             queryset = queryset.order_by(self.sort_field)
         return queryset
 
+    #добавление товара в корзину
     def post(self, request, *args, **kwargs):
         cart = Cart(request)
         quantity = 1
