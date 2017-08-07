@@ -2,8 +2,19 @@
 
 {% block form %}
 <h1>Оформить заказ</h1>
-<h3 class="order_title">Ваш заказ</h3>
-<p>Товаров: {{cart.get_total_quantity}}</p>
-<p>Сумма: {{cart.get_total_price}}р</p>
-<h3 class="order_title">Заполните форму</h3>
+
+<h4>
+  {% if messages %}
+    {% for message in messages %}
+      {{message}}
+    {% endfor %}
+  {% endif %}
+</h4>
+
+{% if not cart.empty %}
+  <h3 class="order_title">Ваш заказ</h3>
+  <p>Товаров: {{cart.get_total_quantity}}</p>
+  <p>Сумма: {{cart.get_total_price}}р</p>
+  <h3 class="order_title">Заполните форму</h3>
+{% endif %}
 {% endblock %}

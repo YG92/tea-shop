@@ -4,6 +4,7 @@ from django.views.generic import FormView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import OrderCreateForm
 from cart.cart import Cart
+from django.contrib import messages
 
 
 class OrderCreateView(LoginRequiredMixin, FormView):
@@ -26,20 +27,23 @@ class OrderCreateView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         cart = Cart(self.request)
-        if form.is_valid():
-            form.instance.customer = self.request.user
-            order = form.save()
-            for item in cart:
-                OrderItem.objects.create(order=order,
-                                        product=item['product'],
-                                        price=item['price'],
-                                        quantity=item['quantity'])
-            cart.clear()
-            self.request.session["order_completed"] = True
-            return redirect('/')
+        if not cart.empty():
+            if form.is_valid():
+                form.instance.customer = self.request.user
+                order = form.save()
+                for item in cart:
+                    OrderItem.objects.create(order=order,
+                                            product=item['product'],
+                                            price=item['price'],
+                                            quantity=item['quantity'])
+                cart.clear()
+                self.request.session["order_completed"] = True
+                return redirect('/')
+            else:
+                return self.form_invalid(form)
         else:
-            return self.form_invalid(form)
-
+            messages.error(self.request, "Невозможно оформить заказ, Ваша корзина пуста")
+            return redirect("/order/create/")
 
 class OrderListView(ListView):
     model = Order

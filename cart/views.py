@@ -2,7 +2,7 @@
 
 from .cart import Cart
 from catalogue.models import Product
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect
 from django.views.generic import TemplateView
 from django.contrib import messages
 
@@ -29,4 +29,3 @@ class CartDetailView(TemplateView):
         else:
             cart.remove(product)
             return redirect ("/cart/")
-            
