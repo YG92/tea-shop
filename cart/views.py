@@ -18,17 +18,15 @@ class CartDetailView(TemplateView):
     def post(self, request, *args, **kwargs):
         cart = Cart(request)
         product_id = request.POST.get('product_id')
-        quantity = request.POST.get('quantity')
         product = Product.objects.get(pk=product_id)
-        if cart.quantity_valid(request, product, quantity):
-            cart.update(product, quantity)
+        if request.POST['update'] == "Обновить":
+            quantity = request.POST.get('quantity')
+            if cart.quantity_valid(request, product, quantity):
+                cart.update(product, quantity)
+            else:
+                messages.error(request, "Доступно всего %s" %(product.in_stock))
+            return redirect ("/cart/")
         else:
-            messages.error(request, "Доступно всего %s" %(product.in_stock))
-        return redirect ("/cart/")
-
-
-def Remove(request, **kwargs):
-    cart = Cart(request)
-    product = get_object_or_404(Product, id=kwargs['id'])
-    cart.remove(product)
-    return redirect (request.META.get('HTTP_REFERER'))
+            cart.remove(product)
+            return redirect ("/cart/")
+            
