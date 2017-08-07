@@ -7,14 +7,29 @@ form li {
 .form {
   margin: 2rem 0;
 }
+
 #cart_form{
   width: 100%;
   margin: 2rem;
 }
+
 #cart_add{
   width: auto;
   height: auto;
-  margin-bottom: 1.5rem;
+}
+
+#remove{
+  width: 100%;
+}
+
+#remove input{
+  border: none;
+  font-size: 1.5rem;
+}
+
+#cart_add input:hover,
+#remove input:hover{
+  cursor: pointer;
 }
 
 form{

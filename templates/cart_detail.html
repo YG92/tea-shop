@@ -43,7 +43,7 @@
         <td>{{item.product.price}}p</td>
         <td>{{ item.total_price }}р</td>
         <td>
-          <form action="" method="POST">
+          <form action="" method="POST" id="remove">
             <input type="hidden" value="{{item.product.id}}" name="product_id">
             <input type="submit" value=&#x274c; name="update" class="red_link">
             {% csrf_token %}
