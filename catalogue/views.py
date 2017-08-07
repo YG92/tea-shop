@@ -16,6 +16,11 @@ class ProductListView(ListView):
         context["cats"] = Category.objects.all()
         context["category"] = self.cat
         context["cart"] = Cart(self.request)
+        if "order_completed" in self.request.session:
+            context["success"] = self.request.session["order_completed"]
+            self.request.session["order_completed"] = False
+        else:
+            context["success"] = False
         return context
 
     def get(self, request, *args, **kwargs):

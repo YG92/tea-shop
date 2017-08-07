@@ -3,15 +3,15 @@ var closeButtons = document.querySelectorAll('.close');
 
 function showModal(clickedElem){
   return function(){
-    var parent = clickedElem.parentNode;
-    var modal = parent.querySelector('.product_detail');
+    const parent = clickedElem.parentNode;
+    const modal = parent.querySelector('.product_detail');
     modal.style.display = "block";
   }
 }
 
 function hideModal(clickedElem){
   return function(){
-    var modal = clickedElem.parentNode.parentNode;
+    const modal = clickedElem.parentNode.parentNode;
     modal.style.display = "none";
   }
 }
